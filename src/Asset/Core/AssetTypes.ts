@@ -7,6 +7,7 @@ export interface AssetDoc {
   organisationId: string;
   name: string;
   key: string;
+  thumbnailKey?: string;
   fileInfo: {
     fileSize: number;
     fileExtention: string;

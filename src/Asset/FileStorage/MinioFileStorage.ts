@@ -1,3 +1,4 @@
+import type Stream from "node:stream";
 import {randomUUID} from "node:crypto";
 import {fileTypeFromBuffer} from "file-type";
 import type {Client} from "minio";
@@ -9,6 +10,15 @@ export class MinioFileStorage implements FileStorage {
   private readonly client: Client;
   constructor(client: Client) {
     this.client = client;
+  }
+
+  async getObject(key: string): Promise<Buffer> {
+    const objStream = await this.client.getObject(BUCKET_NAME, key);
+    return await this.streamToBuffer(objStream);
+  }
+
+  async saveObject(key: string, data: Buffer): Promise<void> {
+    await this.client.putObject(BUCKET_NAME, key, data);
   }
   async delete(key: string): Promise<void> {
     await this.client.removeObject(BUCKET_NAME, key);
@@ -31,11 +41,7 @@ export class MinioFileStorage implements FileStorage {
       0,
       rangeLength
     );
-    const chunks: Buffer[] = [];
-    for await (const chunk of stream) {
-      chunks.push(chunk as Buffer);
-    }
-    const buffer = Buffer.concat(chunks);
+    const buffer = await this.streamToBuffer(stream);
 
     // Use file-type to determine the type from the buffer
     const fileType = await fileTypeFromBuffer(buffer);
@@ -44,5 +50,14 @@ export class MinioFileStorage implements FileStorage {
       ext: fileType?.ext ?? "unknown",
       mime: fileType?.mime ?? "unknown",
     };
+  }
+
+  private async streamToBuffer(stream: Stream.Readable) {
+    const chunks: Buffer[] = [];
+    for await (const chunk of stream) {
+      chunks.push(chunk as Buffer);
+    }
+    const buffer = Buffer.concat(chunks);
+    return buffer;
   }
 }

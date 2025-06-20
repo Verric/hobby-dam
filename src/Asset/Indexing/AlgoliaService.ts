@@ -37,9 +37,18 @@ export class AlgoliaService implements IndexingService {
         tags: asset.tags,
         allowedUsers,
         allowedGroups,
+        thumbnailKey: "",
         isPublic: asset.visibility === "public",
         createdBy: asset.metadata.createdById,
       },
+    });
+  }
+
+  async updateThumbnailKey(id: string, thumbnailKey: string): Promise<void> {
+    await this.algolia.partialUpdateObject({
+      indexName: ASSET_INDEX,
+      objectID: id,
+      attributesToUpdate: {thumbnailKey},
     });
   }
 

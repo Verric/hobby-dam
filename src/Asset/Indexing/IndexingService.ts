@@ -8,5 +8,6 @@ import type {AssetDoc} from "../Core/AssetTypes.js";
  */
 export interface IndexingService {
   indexAsset(asset: WithId<AssetDoc>): Promise<void>;
+  updateThumbnailKey(id: string, thumbnailKey: string): Promise<void>;
   removeAsset(id: string): Promise<void>;
 }

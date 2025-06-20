@@ -16,9 +16,27 @@ export class AssetRepository {
     return result;
   }
 
+  async fetchAssetKey(
+    assetId: string
+  ): Promise<Pick<WithId<AssetDoc>, "_id" | "key">> {
+    const result = await this.mongo.findOne(
+      {_id: new ObjectId(assetId)},
+      {projection: {key: 1}}
+    );
+    if (!result) throw new Error("Asset Not Found");
+    return result;
+  }
+
   // TODO add organisationId to this
   async fetchAllAssets(): Promise<WithId<AssetDoc>[]> {
     return await this.mongo.find().toArray();
+  }
+
+  async saveThumbnailKey(assetId: string, key: string) {
+    await this.mongo.findOneAndUpdate(
+      {_id: new ObjectId(assetId)},
+      {thumbnailKey: key}
+    );
   }
 
   async saveAsset(

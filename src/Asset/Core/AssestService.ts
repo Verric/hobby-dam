@@ -35,6 +35,15 @@ export class AssetsService {
     return await this.repo.fetchAssetOrThrow(id);
   }
 
+  async fetchFileKey(id: string) {
+    const doc = await this.repo.fetchAssetKey(id);
+    return doc.key;
+  }
+
+  async setThumbnailKey(id: string, thumbnailKey: string) {
+    await this.repo.saveThumbnailKey(id, thumbnailKey);
+  }
+
   async createAsset(
     name: string,
     key: string,
