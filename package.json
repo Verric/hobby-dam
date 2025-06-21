@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "myadbox-dam",
+  "name": "hobby-dam",
   "version": "1.0.0",
   "main": "index.js",
   "author": "verric",
@@ -21,10 +21,10 @@
     "@fastify/jwt": "^9.1.0",
     "@fastify/type-provider-typebox": "^5.1.0",
     "@napi-rs/image": "^1.9.2",
-    "@sinclair/typebox": "^0.34.33",
-    "algoliasearch": "^5.27.0",
+    "@sinclair/typebox": "^0.34.35",
+    "algoliasearch": "^5.29.0",
     "dotenv": "^16.5.0",
-    "fastify": "^5.3.3",
+    "fastify": "^5.4.0",
     "file-type": "^21.0.0",
     "inversify": "^7.5.2",
     "meilisearch": "^0.51.0",
@@ -33,10 +33,10 @@
     "pino": "^9.7.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/node": "^22.15.30",
-    "tsx": "^4.19.4",
+    "@biomejs/biome": "^2.0.2",
+    "@types/node": "^24",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.3"
+    "vitest": "^3.2.4"
   }
 }
