@@ -1,5 +1,5 @@
-import type Stream from "node:stream";
 import {randomUUID} from "node:crypto";
+import type Stream from "node:stream";
 import {fileTypeFromBuffer} from "file-type";
 import type {Client} from "minio";
 import type {FileStats, FileStorage} from "./FileStorage.js";

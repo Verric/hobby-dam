@@ -1,10 +1,10 @@
 import type {FastifyInstance} from "fastify";
 import type {Container} from "inversify";
 import type {Collection, Db} from "mongodb";
-import {TOKENS} from "../lib/tokens.js";
-import {ReportService} from "./ReportService.js";
 import type {AppEmitter} from "../lib/events/DomainEvents.js";
+import {TOKENS} from "../lib/tokens.js";
 import {ReportController} from "./ReportController.js";
+import {ReportService} from "./ReportService.js";
 import type {AssetReportDocument, DashboardDocument} from "./ReportTypes.js";
 
 export function setupReport(

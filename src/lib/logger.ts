@@ -1,6 +1,6 @@
 import {existsSync, mkdirSync} from "node:fs";
 import {resolve} from "node:path";
-import {pino} from "pino";
+import {multistream, pino} from "pino";
 
 const logDirectory = resolve(process.cwd(), "logs");
 
@@ -10,6 +10,12 @@ if (!existsSync(logDirectory)) {
 }
 
 const logFile = resolve(process.cwd(), "logs", "app.log");
-const logger = pino({level: "info"}, pino.destination(logFile));
+
+const streams = [
+  {stream: process.stdout}, // log to console
+  {stream: pino.destination(logFile)}, // log to file
+];
+
+const logger = pino({level: "info"}, multistream(streams));
 
 export {logger};

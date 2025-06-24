@@ -1,6 +1,6 @@
 import type {
-  ApprovalProcessDoc,
   ApprovalInstanceStep,
+  ApprovalProcessDoc,
   ProcessStatus,
 } from "./ApprovalTypes.js";
 

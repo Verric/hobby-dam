@@ -2,6 +2,7 @@ import type {WithId} from "mongodb";
 import type {GroupService} from "../Group/GroupService.js";
 import type {UserRepository} from "./UserRepository.js";
 import type {UserDoc} from "./UserTypes.js";
+
 interface CreateUserParams {
   username: string;
   organisationId: string;

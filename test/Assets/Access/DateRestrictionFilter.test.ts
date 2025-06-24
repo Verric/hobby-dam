@@ -4,6 +4,7 @@ import type {
   AccessDoc,
 } from "../../../src/Asset/Access/AccessTypes.js";
 import {DateRestrictionFilter} from "../../../src/Asset/Access/policy/strategies/TimeRangeFilter.js";
+
 describe("DateRestrictionFilter", () => {
   let filter: DateRestrictionFilter;
 

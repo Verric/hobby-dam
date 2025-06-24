@@ -1,6 +1,3 @@
-import type {FileStorage} from "../FileStorage/FileStorage.js";
-import type {IndexingService} from "../Indexing/IndexingService.js";
-import type {AssetRepository} from "./AssetRepository.js";
 import {
   type AppEmitter,
   ASSET_CREATED,
@@ -9,6 +6,9 @@ import {
   type AssetDeletedPayload,
   type DomainEvent,
 } from "../../lib/events/DomainEvents.js";
+import type {FileStorage} from "../FileStorage/FileStorage.js";
+import type {IndexingService} from "../Indexing/IndexingService.js";
+import type {AssetRepository} from "./AssetRepository.js";
 
 export class AssetsService {
   private readonly repo: AssetRepository;
@@ -114,7 +114,7 @@ export class AssetsService {
 
       this.eventEmitter.emit(ASSET_DELETED, event);
       return true;
-    } catch (e) {
+    } catch (_e) {
       return false;
     }
   }

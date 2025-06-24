@@ -5,6 +5,7 @@ import {Client} from "minio";
 import type {Collection, Db} from "mongodb";
 import type {GroupService} from "../Group/index.js";
 import type {AppConfigInterface} from "../lib/envVars.js";
+import type {AppEmitter} from "../lib/events/DomainEvents.js";
 import {TOKENS} from "../lib/tokens.js";
 import {AccessController} from "./Access/AccessController.js";
 import {AccessRepository} from "./Access/AccessRepository.js";
@@ -18,7 +19,6 @@ import type {FileStorage} from "./FileStorage/FileStorage.js";
 import {MinioFileStorage} from "./FileStorage/MinioFileStorage.js";
 import {AlgoliaService} from "./Indexing/AlgoliaService.js";
 import type {IndexingService} from "./Indexing/IndexingService.js";
-import type {AppEmitter} from "../lib/events/DomainEvents.js";
 
 export async function setupAssetModule(
   container: Container,

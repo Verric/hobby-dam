@@ -2,8 +2,8 @@ import {type Collection, ObjectId} from "mongodb";
 import {ApprovalProcess} from "./ApprovalAggregate.js";
 import type {
   ApprovalProcessDoc,
-  ApprovalTemplateStepDoc,
   ApprovalTemplateDoc,
+  ApprovalTemplateStepDoc,
 } from "./ApprovalTypes.js";
 
 export class MongoApprovalProcessRepository {

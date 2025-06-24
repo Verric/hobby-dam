@@ -1,8 +1,8 @@
-import type {
-  ApprovalTemplateStepDoc,
-  ApprovalTemplateDoc,
-} from "./ApprovalTypes.js";
 import type {MongoApprovalProcessRepository} from "./ApprovalRepository.js";
+import type {
+  ApprovalTemplateDoc,
+  ApprovalTemplateStepDoc,
+} from "./ApprovalTypes.js";
 
 export class ApprovalService {
   private readonly repository: MongoApprovalProcessRepository;

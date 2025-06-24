@@ -35,7 +35,9 @@ export function setupOrganisation(
   container
     .bind<OrganisationController>(TOKENS.OrganisationController)
     .toDynamicValue((context) => {
-      const service = context.get<OrganisationService>(TOKENS.OrganisationService);
+      const service = context.get<OrganisationService>(
+        TOKENS.OrganisationService
+      );
       return new OrganisationController(service);
     })
     .inSingletonScope();

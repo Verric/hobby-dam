@@ -75,7 +75,7 @@ export class AssetRepository {
     return doc;
   }
 
-  async setAccess(assetId: string, userIds: string[], groupIds: string[]) {
+  async setAccess(assetId: string, _userIds: string[], _groupIds: string[]) {
     const id = new ObjectId(assetId);
     const doc = this.mongo.findOne({_id: id}, {projection: {_id: 1}});
     if (!doc) throw new Error("Asset Not Found");

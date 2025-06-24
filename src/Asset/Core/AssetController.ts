@@ -10,12 +10,6 @@ import {
   type AssetIdParams,
   AssetResponseSchema,
 } from "./AssetTypes.js";
-
-interface UploadParams {
-  filename: string;
-  contentType: string;
-}
-
 interface UploadParams {
   filename: string;
   contentType: string;

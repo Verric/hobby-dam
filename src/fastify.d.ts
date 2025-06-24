@@ -16,6 +16,6 @@ declare module "@fastify/jwt" {
 declare module "fastify" {
   interface FastifyInstance {
     bulkIngestionService: BulkIngestionService;
-    authService;
+    authService: AuthService;
   }
 }

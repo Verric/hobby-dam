@@ -10,7 +10,7 @@ interface TokenData {
 export async function AuthUser(req: FastifyRequest, reply: FastifyReply) {
   try {
     req.user = await req.jwtVerify<TokenData>();
-  } catch (err) {
+  } catch (_err) {
     reply.code(401).send({error: "Unauthorized"});
   }
 }
