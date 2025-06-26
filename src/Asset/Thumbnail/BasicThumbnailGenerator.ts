@@ -1,7 +1,7 @@
 import type {AssetsService} from "../Core/index.js";
 import type {FileStorage} from "../FileStorage/FileStorage.js";
 import type {IndexingService} from "../Indexing/IndexingService.js";
-import type {ImageResizer, ThumbnailGenerator} from "./ThumbNailTypes.js";
+import type {ImageResizer, ThumbnailGenerator} from "./ThumbnailTypes.js";
 
 export class BasicThumbnailGenerator implements ThumbnailGenerator {
   private readonly fileStorage: FileStorage;

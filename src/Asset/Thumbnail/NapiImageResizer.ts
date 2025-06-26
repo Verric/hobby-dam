@@ -1,5 +1,5 @@
 import {ResizeFilterType, Transformer} from "@napi-rs/image";
-import type {ImageResizer, ResizeOptions} from "./ThumbNailTypes.js";
+import type {ImageResizer, ResizeOptions} from "./ThumbnailTypes.js";
 
 // TODO, base out type on input type instead of just JPEG
 export class NapiImageResizer implements ImageResizer {
